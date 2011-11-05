@@ -52,12 +52,23 @@ public class Algoritmo {
     SeleccionSobrevivientes vivos;
         
     
-    public Algoritmo() {
+    public Algoritmo() throws IOException {
+        
+        String ACC = "..\\instanciaN120G20\\cantColores.txt";
+        String ACG ="..\\instanciaN120G20\\cantGrupos.txt";
+        String ACN ="..\\instanciaN120G20\\cantNaipes.txt";
+        String AC ="..\\instanciaN120G20\\Colores.txt";
+        String AN = "..\\instanciaN120G20\\Naipes.txt";
+        
+        //abrimos todos los archivos.
+        Info.abrirArchivoCantColores(ACC);
+        Info.abrirArchivoCantGrupos(ACG);
+        Info.abrirArchivoCantNaipes(ACN);
+        Info.AbrirArchivoColores(AC);
+        Info.AbrirArchivoNaipes(AN);
+        
         this.f = new FitnessConHistorial();//Inicializamos la funcion de Fitness Seleccionada.
         Individuo.setCalculadorFitness(f);//Asignmos la funcion de Fitness dentro de los Individuos. 
-        
-        this.g= new GPConjunto();//Inicializamos el Generador Poblacional Seleccionado.
-        Poblacion p;
         
         this.s = new PadresPorTorneo(COMPETIDORES);
         this.m = new MutacionPorIntercambio(PROB_MUTAR);
@@ -114,20 +125,8 @@ public class Algoritmo {
     
     public void ejecutar() throws IOException{
     
-        String ACC = "..\\instanciaN120G20\\cantColores.txt";
-        String ACG ="..\\instanciaN120G20\\cantGrupos.txt";
-        String ACN ="..\\instanciaN120G20\\cantNaipes.txt";
-        String AC ="..\\instanciaN120G20\\Colores.txt";
-        String AN = "..\\instanciaN120G20\\Naipes.txt";
         
-        //abrimos todos los archivos.
-        Info.abrirArchivoCantColores(ACC);
-        Info.abrirArchivoCantGrupos(ACG);
-        Info.abrirArchivoCantNaipes(ACN);
-        Info.AbrirArchivoColores(AC);
-        Info.AbrirArchivoNaipes(AN);
-
-        GeneradorPoblacion g= new GPConjunto();//Inicializamos el Generador Poblacional Seleccionado.
+        this.g= new GPConjunto();//Inicializamos el Generador Poblacional Seleccionado.
         Poblacion p;
        
         System.out.println("xxxxxxx   PROBANDO EJECUCION GENERICA   xxxxxxx" );
