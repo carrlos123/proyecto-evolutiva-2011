@@ -52,14 +52,8 @@ public class Algoritmo {
     SeleccionSobrevivientes vivos;
         
     
-    public Algoritmo() throws IOException {
-        
-        String ACC = "..\\instanciaN120G20\\cantColores.txt";
-        String ACG ="..\\instanciaN120G20\\cantGrupos.txt";
-        String ACN ="..\\instanciaN120G20\\cantNaipes.txt";
-        String AC ="..\\instanciaN120G20\\Colores.txt";
-        String AN = "..\\instanciaN120G20\\Naipes.txt";
-        
+    public Algoritmo(String ACC, String ACG, String ACN, String AC, String AN) throws IOException {
+       
         //abrimos todos los archivos.
         Info.abrirArchivoCantColores(ACC);
         Info.abrirArchivoCantGrupos(ACG);
@@ -124,8 +118,6 @@ public class Algoritmo {
     }
     
     public void ejecutar() throws IOException{
-    
-        
         this.g= new GPConjunto();//Inicializamos el Generador Poblacional Seleccionado.
         Poblacion p;
        

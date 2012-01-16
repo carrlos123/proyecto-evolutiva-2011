@@ -60,7 +60,14 @@ public class EvolutivaApp extends SingleFrameApplication {
     public static void main(String[] args) throws IOException{
         launch(EvolutivaApp.class, args);
         
-        Algoritmo a = new Algoritmo();
+        
+        String ACC = "C:\\instanciaN120G20cantColores.txt";
+        String ACG = "C:\\instanciaN120G20\\cantGrupos.txt";
+        String ACN = "C:\\instanciaN120G20\\cantNaipes.txt";
+        String AC  = "C:\\instanciaN120G20\\Colores.txt";
+        String AN  = "C:\\instanciaN120G20\\Naipes.txt";
+        
+        Algoritmo a = new Algoritmo(ACC, ACG, ACN, AC, AN);
         a.ejecutar();
         
         /*
