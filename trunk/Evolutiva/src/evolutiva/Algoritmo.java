@@ -32,6 +32,7 @@ import java.util.Date;
  */
 
 public class Algoritmo {
+    
     private static int COMPETIDORES = 4;
     //cantidad de competidores en la seleccion por torneo, para seleccionar padres.
     private static int TAM_POBLACION = 100;
