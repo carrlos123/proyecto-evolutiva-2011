@@ -15,8 +15,17 @@ public class PadresProporcionalFitness extends SeleccionPadres{
 
     @Override
     public Individuo getPadre(Poblacion p) {
-        throw new UnsupportedOperationException("Not supported yet.");
+      float elementoAleatorio =(float) Math.random() * p.getValorFitnessTotal();
+      int posElemento = 0;
+      p.ordenarPorFitness();
+      float acumulado = 0.0f;
+      while (acumulado < elementoAleatorio){
+          acumulado+= p.getIndividuo(posElemento).getValorFitness();
+          posElemento++;
+      }
+      return p.getIndividuo(posElemento);
     }
+
 
     
 }

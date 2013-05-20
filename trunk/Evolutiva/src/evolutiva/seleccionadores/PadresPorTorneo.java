@@ -16,7 +16,7 @@ public class PadresPorTorneo extends SeleccionPadres{
 
     private static final int PRIMERO = 0;
     private int cantConcursantes;
-    //cantidad de individuos que compiten en el torneo.
+    //cantidad de individuos que compiten en el torneo. al momento de seleccionar el padre
     
     public PadresPorTorneo(int c) {
         this.cantConcursantes = c;
@@ -43,7 +43,9 @@ public class PadresPorTorneo extends SeleccionPadres{
     
     @Override
     public Individuo getPadre(Poblacion p) {
+        // Retorna el padre seleccionado mediante la realizacion de un torneo
         ArrayList<Individuo> competidores = buscadosAleatorio(p);
+        //generalmos una lista con los padres posibles a seleccionar en el torneo
         while (competidores.size() > 1){
         //System.out.println(" torneo de "+ competidores.size() +" competidores");   
             competidores = peleasDePares(competidores);
@@ -51,7 +53,7 @@ public class PadresPorTorneo extends SeleccionPadres{
         if (competidores.isEmpty())
             return null;
         else
-            return competidores.get(PRIMERO);
+            return competidores.get(PRIMERO); //Retornamos el ultimo individuo que queda en la lista, el ganador del torneo
     }
 
     private ArrayList<Individuo> buscadosAleatorio(Poblacion p) {

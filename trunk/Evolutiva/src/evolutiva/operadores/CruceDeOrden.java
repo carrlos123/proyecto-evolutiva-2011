@@ -28,7 +28,7 @@ public class CruceDeOrden extends OperadorCruce{
             pos1 = (int) (Math.random() * nroCartas); 
             pos2 = (int) (Math.random() * nroCartas);
         }while((Math.abs(pos1 - pos2) > nroCartas-2)||(Math.abs(pos1 - pos2) < 2));
-        if (pos2 < pos1){
+        if (pos2 < pos1){//busco la pos menor
             aux = pos1;
             pos1 = pos2;
             pos2 = aux;
@@ -44,9 +44,6 @@ public class CruceDeOrden extends OperadorCruce{
     private Individuo generarHijo(Vector<Integer> genesP1, Vector<Integer> genesP2, int pos1, int pos2){
         int nroCartas = genesP1.size();
         Vector<Integer> genesHijo = (Vector<Integer>) genesP1.clone();
-//        for(int i = pos1; i < pos2; i++)
-//            genesHijo.add(i, genesP1.elementAt(i));
-//        genesHijo.addAll(pos1, genesP1.subList(pos1, pos2));
         Vector<Integer> restantesP1 = new Vector<Integer>();
         restantesP1.addAll(genesP1.subList(0, pos1));
         restantesP1.addAll(genesP1.subList(pos2, nroCartas));
