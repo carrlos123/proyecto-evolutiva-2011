@@ -1,0 +1,1 @@
+Algoritmo genetico para la solucion de un problema dado por la catedra de Computacion Evolutiva de la UNICEN
